@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário com Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calendar">
+        <div class="calendar-header">
+            <button id="prev" onclick="prevPeriod()">&#10094;</button>
+            <div id="month-year"></div>
+            <button id="next" onclick="nextPeriod()">&#10095;</button>
+        </div>
+        <div class="view-options">
+            <button onclick="setView('week')">Semana</button>
+            <button onclick="setView('month')">Mês</button>
+            <button onclick="setView('year')">Ano</button>
+        </div>
+        <div class="calendar-body">
+            <div class="calendar-weekdays" id="calendar-weekdays"></div>
+            <div class="calendar-days" id="calendar-days"></div>
+        </div>
+    </div>
+
+    <div class="task-manager">
+        <h2>Adicionar Tarefa</h2>
+        <form id="task-form">
+            <input type="date" id="task-date" required>
+            <input type="time" id="task-time" required>
+            <input type="text" id="task-text" placeholder="Descrição da Tarefa" required>
+            <select id="task-priority" required>
+                <option value="low" style="background-color: green;">Baixa</option>
+                <option value="medium" style="background-color: yellow;">Média</option>
+                <option value="high" style="background-color: red;">Alta</option>
+            </select>
+            <button type="submit">Adicionar Tarefa</button>
+        </form>
+    </div>
+
+    <div id="task-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Tarefas do Dia</h2>
+            <div id="task-modal-list"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
